@@ -7,7 +7,7 @@ namespace LemonFramework
     /// <summary>
     /// 框架更新接口
     /// </summary>
-    public interface ILemonFrameworkUpdate
+    public interface ILemonFrameworkUpdate : ILemonFrameworkModule
     {
         void Update ();
     }

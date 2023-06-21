@@ -11,16 +11,35 @@ namespace LemonFramework
     public static class LemonFrameworkEntry
     {
         private static readonly LemonLinkedList<LemonFrameworkModule> m_LemonFrameworkModule = new LemonLinkedList<LemonFrameworkModule> ();
-        private static readonly LemonLinkedList<ILemonFrameworkUpdate> m_UpdateFrameworkModule = new LemonLinkedList<ILemonFrameworkUpdate> ();
+        private static readonly LemonLinkedList<ILemonFrameworkModule> m_FrameworkModule = new LemonLinkedList<ILemonFrameworkModule> ();
 
         /// <summary>
         /// 所有框架模块轮询
         /// </summary>
         public static void Update ()
         {
-            foreach (ILemonFrameworkUpdate module in m_UpdateFrameworkModule)
+            foreach (ILemonFrameworkModule module in m_FrameworkModule)
             {
-                module.Update ();
+                var frameworkUpdate = module as ILemonFrameworkUpdate;
+                if (frameworkUpdate != null)
+                {
+                    frameworkUpdate.Update ();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 所有框架模块轮询
+        /// </summary>
+        public static void FixedUpdate ()
+        {
+            foreach (ILemonFrameworkModule module in m_FrameworkModule)
+            {
+                var frameworkUpdate = module as ILemonFrameworkFixedUpdate;
+                if (frameworkUpdate != null)
+                {
+                    frameworkUpdate.FixedUpdate ();
+                }
             }
         }
 
@@ -34,7 +53,7 @@ namespace LemonFramework
 
 
         /// <summary>
-        /// 创建游戏框架模块。
+        /// 创建框架模块
         /// </summary>
         /// <param name="moduleType">要创建的框架模块类型</param>
         /// <returns>要创建的框架模块</returns>
@@ -46,25 +65,25 @@ namespace LemonFramework
                 //throw new LemonFrameworkException (Utility.Text.Format ("Can not create module '{0}'.", moduleType.FullName));
             }
 
-            LinkedListNode<LemonFrameworkModule> current = m_LemonFrameworkModule.First;
-            while (current != null)
-            {
-                if (module.Priority > current.Value.Priority)
-                {
-                    break;
-                }
+            //LinkedListNode<LemonFrameworkModule> current = m_LemonFrameworkModule.First;
+            //while (current != null)
+            //{
+            //    if (module.Priority > current.Value.Priority)
+            //    {
+            //        break;
+            //    }
 
-                current = current.Next;
-            }
+            //    current = current.Next;
+            //}
 
-            if (current != null)
-            {
-                m_LemonFrameworkModule.AddBefore (current, module);
-            }
-            else
-            {
-                m_LemonFrameworkModule.AddLast (module);
-            }
+            //if (current != null)
+            //{
+            //    m_LemonFrameworkModule.AddBefore (current, module);
+            //}
+            //else
+            //{
+            //    m_LemonFrameworkModule.AddLast (module);
+            //}
 
             return module;
         }

@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Startup : MonoBehaviour
+namespace LemonFramework
 {
+    public class Startup : MonoBehaviour
+    {
 
+    }
 }
