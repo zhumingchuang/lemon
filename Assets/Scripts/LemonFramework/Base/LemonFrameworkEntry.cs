@@ -65,25 +65,29 @@ namespace LemonFramework
                 //throw new LemonFrameworkException (Utility.Text.Format ("Can not create module '{0}'.", moduleType.FullName));
             }
 
-            //LinkedListNode<LemonFrameworkModule> current = m_LemonFrameworkModule.First;
-            //while (current != null)
-            //{
-            //    if (module.Priority > current.Value.Priority)
-            //    {
-            //        break;
-            //    }
+            ILemonFrameworkModule lemonFrameworkModule = module as ILemonFrameworkModule;
+            if (lemonFrameworkModule != null)
+            {
+                LinkedListNode<ILemonFrameworkModule> current = m_FrameworkModule.First;
+                while (current != null)
+                {
+                    if (lemonFrameworkModule.Priority > current.Value.Priority)
+                    {
+                        break;
+                    }
 
-            //    current = current.Next;
-            //}
+                    current = current.Next;
+                }
 
-            //if (current != null)
-            //{
-            //    m_LemonFrameworkModule.AddBefore (current, module);
-            //}
-            //else
-            //{
-            //    m_LemonFrameworkModule.AddLast (module);
-            //}
+                if (current != null)
+                {
+                    m_FrameworkModule.AddBefore (current, lemonFrameworkModule);
+                }
+                else
+                {
+                    m_FrameworkModule.AddLast (lemonFrameworkModule);
+                }
+            }
 
             return module;
         }
