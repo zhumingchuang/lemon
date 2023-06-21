@@ -10,7 +10,7 @@ namespace LemonFramework
     /// </summary>
     public static class LemonFrameworkEntry
     {
-        private static readonly LemonLinkedList<LemonFrameworkModule> m_LemonFrameworkModule = new LemonLinkedList<LemonFrameworkModule> ();
+        private static readonly List<LemonFrameworkModule> m_LemonFrameworkModule = new List<LemonFrameworkModule> ();
         private static readonly LemonLinkedList<ILemonFrameworkModule> m_FrameworkModule = new LemonLinkedList<ILemonFrameworkModule> ();
 
         /// <summary>
@@ -41,6 +41,14 @@ namespace LemonFramework
                     frameworkUpdate.FixedUpdate ();
                 }
             }
+        }
+
+        /// <summary>
+        /// 获取框架模块
+        /// </summary>
+        public static void GetModel()
+        {
+
         }
 
         /// <summary>
@@ -88,6 +96,8 @@ namespace LemonFramework
                     m_FrameworkModule.AddLast (lemonFrameworkModule);
                 }
             }
+
+            m_LemonFrameworkModule.Add (module);
 
             return module;
         }
