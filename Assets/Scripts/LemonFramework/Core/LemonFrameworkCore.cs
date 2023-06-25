@@ -10,11 +10,11 @@ namespace LemonFramework
         internal static readonly LemonLinkedList<ILemonFrameworkModule> m_FrameworkModule = new LemonLinkedList<ILemonFrameworkModule> ();
 
         /// <summary>
-        /// 获取游戏框架模块
+        /// 获取框架模块
         /// </summary>
-        /// <typeparam name="T">要获取的游戏框架模块类型</typeparam>
-        /// <returns>要获取的游戏框架模块</returns>
-        /// <remarks>如果要获取的游戏框架模块不存在，则自动创建该游戏框架模块</remarks>
+        /// <typeparam name="T">要获取的框架模块类型</typeparam>
+        /// <returns>要获取的框架模块</returns>
+        /// <remarks>如果要获取的框架模块不存在，则自动创建该框架模块</remarks>
         public static T GetModule<T> () where T : class
         {
             Type interfaceType = typeof (T);
@@ -39,11 +39,11 @@ namespace LemonFramework
         }
 
         /// <summary>
-        /// 获取游戏框架模块
+        /// 获取框架模块
         /// </summary>
-        /// <param name="moduleType">要获取的游戏框架模块类型</param>
-        /// <returns>要获取的游戏框架模块</returns>
-        /// <remarks>如果要获取的游戏框架模块不存在，则自动创建该游戏框架模块</remarks>
+        /// <param name="moduleType">要获取的框架模块类型</param>
+        /// <returns>要获取的框架模块</returns>
+        /// <remarks>如果要获取的框架模块不存在，则自动创建该框架模块</remarks>
         private static LemonFrameworkModule GetModule (Type moduleType)
         {
             foreach (LemonFrameworkModule module in m_LemonFrameworkModule)
