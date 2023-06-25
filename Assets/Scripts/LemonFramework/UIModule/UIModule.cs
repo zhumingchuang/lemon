@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace LemonFramework.UI
+namespace LemonFramework.UIModule
 {
     /// <summary>
     /// UI模块

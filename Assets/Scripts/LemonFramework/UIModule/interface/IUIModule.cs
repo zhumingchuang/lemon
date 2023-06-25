@@ -1,6 +1,6 @@
 using System;
 
-namespace LemonFramework.UI
+namespace LemonFramework.UIModule
 {
     /// <summary>
     /// UI模块

@@ -1,6 +1,6 @@
 using System;
 
-namespace LemonFramework.UI
+namespace LemonFramework.UIModule
 {
     public struct IntGroup : IEquatable<IntGroup>
     {

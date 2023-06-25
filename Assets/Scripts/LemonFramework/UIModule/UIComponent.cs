@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LemonFramework.UI
+namespace LemonFramework.UIModule
 {
     /// <summary>
     /// UI组件
@@ -11,10 +11,11 @@ namespace LemonFramework.UI
     public class UIComponent : LemonFrameworkModule, IPopUIModule
     {
         public static UIComponent Instance;
-        private IPopUIModule m_module;
+        private IPopUIModule _module;
         public UIComponent ()
         {
             Instance = this;
+            this._module = new PopUIModule ();
         }
 
         public event Action<int> OnViewEnterCompletedEvent;

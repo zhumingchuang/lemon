@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace LemonFramework.UI
+namespace LemonFramework.UIModule
 {
     /// <summary>
     /// 弹出UI模块
