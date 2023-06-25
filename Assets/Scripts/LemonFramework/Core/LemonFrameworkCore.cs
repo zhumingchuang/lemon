@@ -20,19 +20,19 @@ namespace LemonFramework
             Type interfaceType = typeof (T);
             if (!interfaceType.IsInterface)
             {
-                throw new LemonFrameworkException (/*Utility.Text.Format ("You must get module by interface, but '{0}' is not.", interfaceType.FullName)*/);
+                throw new LemonFrameworkException (Utility.Text.Format ("You must get module by interface, but '{0}' is not.", interfaceType.FullName));
             }
 
             if (!interfaceType.FullName.StartsWith ("LemonFramework.", StringComparison.Ordinal))
             {
-                throw new LemonFrameworkException (/*Utility.Text.Format ("You must get a Game Framework module, but '{0}' is not.", interfaceType.FullName)*/);
+                throw new LemonFrameworkException (Utility.Text.Format ("You must get a Game Framework module, but '{0}' is not.", interfaceType.FullName));
             }
 
-            string moduleName = /*Utility.Text.Format ("{0}.{1}", interfaceType.Namespace, interfaceType.Name.Substring (1))*/"";
+            string moduleName = Utility.Text.Format ("{0}.{1}", interfaceType.Namespace, interfaceType.Name.Substring (1));
             Type moduleType = Type.GetType (moduleName);
             if (moduleType == null)
             {
-                //throw new LemonFrameworkException (Utility.Text.Format ("Can not find Game Framework module type '{0}'.", moduleName));
+                throw new LemonFrameworkException (Utility.Text.Format ("Can not find Game Framework module type '{0}'.", moduleName));
             }
 
             return GetModule (moduleType) as T;
@@ -67,7 +67,7 @@ namespace LemonFramework
             LemonFrameworkModule module = (LemonFrameworkModule)Activator.CreateInstance (moduleType);
             if (module == null)
             {
-                //throw new LemonFrameworkException (Utility.Text.Format ("Can not create module '{0}'.", moduleType.FullName));
+                throw new LemonFrameworkException (Utility.Text.Format ("Can not create module '{0}'.", moduleType.FullName));
             }
 
             ILemonFrameworkModule lemonFrameworkModule = module as ILemonFrameworkModule;
