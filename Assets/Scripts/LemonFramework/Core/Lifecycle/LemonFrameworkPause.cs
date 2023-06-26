@@ -6,15 +6,13 @@ namespace LemonFramework
 {
     public static class LemonFrameworkPause
     {
+        internal static readonly LemonLinkedList<ILemonFrameworkPause> m_FrameworkPause = new LemonLinkedList<ILemonFrameworkPause> ();
+
         public static void OnApplicationPause (bool pause)
         {
-            foreach (ILemonFrameworkModule module in LemonFrameworkCore.m_FrameworkModule)
+            foreach (ILemonFrameworkPause module in m_FrameworkPause)
             {
-                var frameworkPause = module as ILemonFrameworkPause;
-                if (frameworkPause != null)
-                {
-                    frameworkPause.OnApplicationPause (pause);
-                }
+                module.OnApplicationPause (pause);
             }
         }
     }

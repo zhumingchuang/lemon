@@ -6,23 +6,16 @@ namespace LemonFramework
 {
     public static class LemonFrameworkLateUpdate
     {
-        public static void AddLateUpdate()
-        {
-
-        }
+        internal static readonly LemonLinkedList<ILemonFrameworkLateUpdate> m_FrameworkLateUpdate = new LemonLinkedList<ILemonFrameworkLateUpdate> ();
 
         /// <summary>
         /// 所有框架模块LateUpdate轮询
         /// </summary>
         public static void LateUpdate ()
         {
-            foreach (ILemonFrameworkModule module in LemonFrameworkCore.m_FrameworkModule)
+            foreach (ILemonFrameworkLateUpdate module in m_FrameworkLateUpdate)
             {
-                var frameworkLateUpdate = module as ILemonFrameworkLateUpdate;
-                if (frameworkLateUpdate != null)
-                {
-                    frameworkLateUpdate.LateUpdate ();
-                }
+                module.LateUpdate ();
             }
         }
     }

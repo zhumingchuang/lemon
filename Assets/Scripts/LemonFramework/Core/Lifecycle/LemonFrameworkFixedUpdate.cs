@@ -7,18 +7,16 @@ namespace LemonFramework
 {
     public static class LemonFrameworkFixedUpdate
     {
+        internal static readonly LemonLinkedList<ILemonFrameworkFixedUpdate> m_FrameworkFixedUpdate = new LemonLinkedList<ILemonFrameworkFixedUpdate> ();
+
         /// <summary>
         /// 所有框架模块Fixed轮询
         /// </summary>
         public static void FixedUpdate ()
         {
-            foreach (ILemonFrameworkModule module in LemonFrameworkCore.m_FrameworkModule)
+            foreach (ILemonFrameworkFixedUpdate module in m_FrameworkFixedUpdate)
             {
-                var frameworkFixedUpdate = module as ILemonFrameworkFixedUpdate;
-                if (frameworkFixedUpdate != null)
-                {
-                    frameworkFixedUpdate.FixedUpdate ();
-                }
+                module.FixedUpdate ();
             }
         }
     }

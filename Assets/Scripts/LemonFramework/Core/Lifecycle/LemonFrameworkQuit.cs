@@ -6,15 +6,13 @@ namespace LemonFramework
 {
     public static class LemonFrameworkQuit
     {
+        internal static readonly LemonLinkedList<ILemonFrameworkQuit> m_FrameworkQuit = new LemonLinkedList<ILemonFrameworkQuit> ();
+
         public static void OnApplicationQuit ()
         {
-            foreach (ILemonFrameworkModule module in LemonFrameworkCore.m_FrameworkModule)
+            foreach (ILemonFrameworkQuit module in m_FrameworkQuit)
             {
-                var frameworkQuit = module as ILemonFrameworkQuit;
-                if (frameworkQuit != null)
-                {
-                    frameworkQuit.OnApplicationQuit ();
-                }
+                module.OnApplicationQuit ();
             }
         }
     }
