@@ -6,6 +6,11 @@ namespace LemonFramework
 {
     public static class LemonFrameworkLateUpdate
     {
+        public static void AddLateUpdate()
+        {
+
+        }
+
         /// <summary>
         /// 所有框架模块LateUpdate轮询
         /// </summary>
