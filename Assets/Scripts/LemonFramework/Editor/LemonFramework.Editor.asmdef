@@ -1,3 +1,16 @@
 {
-	"name": "LemonFramework.Editor"
+    "name": "LemonFramework.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f1d238b73bcdc6848bc73e8a5e71a927"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
