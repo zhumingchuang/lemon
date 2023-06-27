@@ -5,9 +5,6 @@ using UnityEngine;
 
 namespace LemonFramework
 {
-    /// <summary>
-    /// 框架入口
-    /// </summary>
     public static class LemonFrameworkUpdate
     {
         internal static readonly LemonLinkedList<ILemonFrameworkUpdate> m_FrameworkUpdate = new LemonLinkedList<ILemonFrameworkUpdate> ();
