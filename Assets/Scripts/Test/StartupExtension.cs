@@ -16,6 +16,7 @@ namespace LemonFramework
         private static void Loader (byte[] assBytes, byte[] pdbBytes)
         {
            var assembly = Assembly.Load (assBytes, pdbBytes);
+            LemonFrameworkCore.Add (assembly);
             //this.LoadLogic ();
             IStaticMethod start = new MonoStaticMethod (assembly, "LemonFramework.LemonFrameworkEntry", "Start");
             start.Run ();

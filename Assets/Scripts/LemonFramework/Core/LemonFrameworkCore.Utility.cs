@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -6,10 +7,10 @@ namespace LemonFramework
 {
     public static partial class LemonFrameworkCore
     {
-        private static readonly Dictionary<string, Assembly> m_Assemblies = new ();
-        private static readonly Dictionary<string, Type> m_AllTypes = new ();
-        private static readonly UnOrderMultiMap<Type, Type> m_Types = new ();
         private static readonly Dictionary<Type, List<object>> m_allEvents = new ();
+        private static readonly Dictionary<string, Assembly> m_Assemblies = new ();
+        private static readonly UnOrderMultiMap<Type, Type> m_Types = new ();
+        private static readonly Dictionary<string, Type> m_AllTypes = new ();
 
         /// <summary>
         /// 添加程序集
@@ -114,6 +115,128 @@ namespace LemonFramework
         public static Dictionary<string, Type> GetTypes ()
         {
             return m_AllTypes;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static async UniTask PublishAsync<T> (T a) where T : struct
+        {
+            if (!m_allEvents.TryGetValue (typeof (T), out var iEvents))
+            {
+                return;
+            }
+
+            using var list = LemonList<UniTask>.Create ();
+
+            for (var i = 0; i < iEvents.Count; ++i)
+            {
+                var obj = iEvents[i];
+                if (obj is not AEventAsync<T> aEvent)
+                {
+                    UnityEngine.Debug.LogError ($"event error: {obj.GetType ().Name}");
+                    continue;
+                }
+
+                list.Add (aEvent.Handle (a));
+            }
+
+            try
+            {
+                await UniTask.WhenAll (list.ToArray ());
+            }
+            catch (Exception e)
+            {
+                UnityEngine.Debug.LogError (e);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static async UniTask PublishAsync<T> () where T : struct
+        {
+            if (!m_allEvents.TryGetValue (typeof (T), out var iEvents))
+            {
+                return;
+            }
+
+            using var list = LemonList<UniTask>.Create ();
+
+            for (var i = 0; i < iEvents.Count; ++i)
+            {
+                var obj = iEvents[i];
+                if (obj is not EventAsync<T> aEvent)
+                {
+                    UnityEngine.Debug.LogError ($"event error: {obj.GetType ().Name}");
+                    continue;
+                }
+
+                list.Add (aEvent.Handle ());
+            }
+
+            try
+            {
+                await UniTask.WhenAll (list.ToArray ());
+            }
+            catch (Exception e)
+            {
+                UnityEngine.Debug.LogError (e);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="a"></param>
+        public static void Publish<T> (T a) where T : struct
+        {
+            if (!m_allEvents.TryGetValue (typeof (T), out var iEvents))
+            {
+                return;
+            }
+
+            for (var i = 0; i < iEvents.Count; ++i)
+            {
+                var obj = iEvents[i];
+                if (obj is not AEvent<T> aEvent)
+                {
+                    UnityEngine.Debug.LogError ($"event error: {obj.GetType ().Name}");
+                    continue;
+                }
+
+                aEvent.Handle (a);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void Publish<T> () where T : struct
+        {
+            if (!m_allEvents.TryGetValue (typeof (T), out var iEvents))
+            {
+                return;
+            }
+
+            for (var i = 0; i < iEvents.Count; ++i)
+            {
+                var obj = iEvents[i];
+                if (obj is not Event<T> aEvent)
+                {
+                    UnityEngine.Debug.LogError ($"event error: {obj.GetType ().Name}");
+                    continue;
+                }
+
+                aEvent.Handle ();
+            }
         }
     }
 }
