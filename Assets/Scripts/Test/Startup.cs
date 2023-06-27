@@ -4,26 +4,22 @@ using UnityEngine;
 
 namespace LemonFramework
 {
-    /// <summary>
-    /// 1 mono模式 2 ILRuntime模式 3 mono热重载模式
-    /// </summary>
-    public enum CodeMode
+    public class Startup : MonoBehaviour, IStartup
     {
-        Mono = 1,
-        ILRuntime = 2,
-        Reload = 3,
-    }
+        public CodeMode CodeModeType
+        {
+            get;
+            private set;
+        }
 
-    public class Startup : MonoBehaviour
-    {
         public void Awake ()
         {
-
+            DontDestroyOnLoad (gameObject);
         }
 
         public void Start ()
         {
-
+            this.LoadLemonFramework ();
         }
 
         public void Update ()
