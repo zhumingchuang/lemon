@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 #endif
 
-namespace CNFramework.AssetBundles
+namespace LemonFramework.AssetBundles
 {
     /// <summary>
     ///     Simple AssetBundle management

@@ -4,7 +4,7 @@
 using UnityEditor;
 #endif
 
-namespace CNFramework.AssetBundles
+namespace LemonFramework.AssetBundles
 {
     public class Utility
     {

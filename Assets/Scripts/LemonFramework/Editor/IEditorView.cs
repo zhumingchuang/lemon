@@ -1,4 +1,4 @@
-namespace LemonFramework.Editor.UIModule
+namespace LemonFramework.Editor
 {
     /// <summary>
     /// 编辑器窗口接口

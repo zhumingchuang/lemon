@@ -14,7 +14,7 @@ namespace LemonFramework.Editor.UIModule
     {
         private static CreateMVPModel _model;
 
-        [MenuItem(EditorStrDef.UI.CREATE_MVP)]
+        [MenuItem(EditorDefine.UI.CREATE_MVP)]
         public static void CreateMenu()
         {
             Create(true);
@@ -61,7 +61,7 @@ namespace LemonFramework.Editor.UIModule
                 return;
             }
 
-            EditorPrefs.SetString(EditorStrDef.SELECTUIASSEMBLY, ((CreateMVPView)_model.View).SelectAssemblyName);
+            EditorPrefs.SetString(EditorDefine.SELECTUIASSEMBLY, ((CreateMVPView)_model.View).SelectAssemblyName);
             string[] pathGUID = UnityEditor.AssetDatabase.FindAssets("MVPFileCreator");
             if (pathGUID.Length > 1)
             {

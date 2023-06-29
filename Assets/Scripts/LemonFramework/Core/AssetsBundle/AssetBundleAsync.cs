@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace CNFramework.AssetBundles
+namespace LemonFramework.AssetBundles
 {
     /// <summary>
     ///     An asynchronous wrapper for the AssetBundleManager downloading system

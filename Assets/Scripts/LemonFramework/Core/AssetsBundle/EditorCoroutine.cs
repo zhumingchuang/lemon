@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace CNFramework.AssetBundles
+namespace LemonFramework.AssetBundles
 {
     /// <summary>
     ///     Utility to run coroutine functions in the editor

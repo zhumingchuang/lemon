@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace CNFramework.AssetBundles
+namespace LemonFramework.AssetBundles
 {
     public class AssetBundleDownloaderMonobehaviour : MonoBehaviour
     {

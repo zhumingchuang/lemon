@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace CNFramework.AssetBundles
+namespace LemonFramework.AssetBundles
 {
     public struct AssetBundleDownloadCommand
     {

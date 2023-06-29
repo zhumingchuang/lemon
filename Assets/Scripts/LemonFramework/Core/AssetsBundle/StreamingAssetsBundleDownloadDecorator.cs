@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace CNFramework.AssetBundles
+namespace LemonFramework.AssetBundles
 {
     /// <summary>
     ///     Decorator for AssetBundleDownloader that attempts to use assets in the StreamingAssets folder before moving to the

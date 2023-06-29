@@ -57,7 +57,7 @@ namespace LemonFramework.Editor.UIModule
             return empty;
         }
 
-        [MenuItem("GameObject/CNFramework/UISearcher(Canvas) &C", false, 11)]
+        [MenuItem("GameObject/LemonFramework/UISearcher(Canvas) &C", false, 11)]
         private static void SearchByCanvas()
         {
             string str = ViewNodeSeacher.Search();
@@ -70,7 +70,7 @@ namespace LemonFramework.Editor.UIModule
             ViewNodeSeacher.CopyContent(str);
         }
 
-        [MenuItem("GameObject/CNFramework/UISearcher(UIRoot) &R", false, 11)]
+        [MenuItem("GameObject/LemonFramework/UISearcher(UIRoot) &R", false, 11)]
         private static void SearchByRoot()
         {
             string str = ViewNodeSeacher.Search();

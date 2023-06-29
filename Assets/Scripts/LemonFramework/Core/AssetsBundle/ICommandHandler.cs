@@ -1,4 +1,4 @@
-﻿namespace CNFramework.AssetBundles
+﻿namespace LemonFramework.AssetBundles
 {
     public interface ICommandHandler<in T>
     {

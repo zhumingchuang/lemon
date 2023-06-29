@@ -1,6 +1,6 @@
 using System;
 
-namespace LemonFramework.Editor.UIModule
+namespace LemonFramework.Editor
 {
     public interface IEditorModel
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LemonFramework.Editor
 {
-    public static partial class EditorStrDef
+    public static partial class EditorDefine
     {
         public static partial class UI
         {
