@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using LemonFramework.Editor.UIModule;
+using System.Collections.Generic;
 using UnityEditor;
 
 namespace LemonFramework.Editor
@@ -56,15 +57,15 @@ namespace LemonFramework.Editor
         {
             _editorViews = new Dictionary<string, IEditorView>();
             _editorViews.Add("BuildProjectSettings", BuildProjectEditor.BuildProjectSetings());
-            //_editorViews.Add("AssemblySettings", AssemblyFileCreator.Create());
-            //_editorViews.Add("MVPCreator", MVPFileCreator.Create());
+            _editorViews.Add ("AssemblySettings", AssemblyFileCreator.Create ());
+            _editorViews.Add ("MVPCreator", MVPFileCreator.Create ());
             _editorViews.Add("CodesInfo", CodesInfo.CodesInfoMenu());
             EditorViews = _editorViews;
 
             _editorViewsEvent = new Dictionary<string, System.Func<bool, EditorWindow>>();
             EditorViewsEvent.Add("BuildProjectSettings", BuildProjectEditor.BuildProjectSetings);
-            //EditorViewsEvent.Add("AssemblySettings", AssemblyFileCreator.Create);
-            //EditorViewsEvent.Add("MVPCreator", MVPFileCreator.Create);
+            EditorViewsEvent.Add ("AssemblySettings", AssemblyFileCreator.Create);
+            EditorViewsEvent.Add ("MVPCreator", MVPFileCreator.Create);
             EditorViewsEvent.Add("CodesInfo", CodesInfo.CodesInfoMenu);
             EditorViewsEvent = _editorViewsEvent;
         }
