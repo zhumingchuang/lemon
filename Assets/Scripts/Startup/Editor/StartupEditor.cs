@@ -25,6 +25,8 @@ namespace LemonFramework.Editor
             GUILayout.BeginHorizontal ();
             {
                 EditorGUILayout.LabelField ("Default Manifest:", GUILayout.MinWidth (EditorGUIUtility.labelWidth));
+
+                //EditorGUILayout.EnumPopup()
                 //startupTarget .CodeModeType=(LemonFramework.CodeMode) EditorGUILayout.EnumFlagsField (startupTarget.CodeModeType);
             }
             GUILayout.EndHorizontal ();

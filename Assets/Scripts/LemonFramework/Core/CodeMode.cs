@@ -3,7 +3,8 @@ namespace LemonFramework
     public enum CodeMode
     {
         Mono = 1,
-        ILRuntime =2,
-        Reload = 3
+        IL2CPP = 2,
+        ILRuntime = 3,
+        Reload = 4
     }
 }

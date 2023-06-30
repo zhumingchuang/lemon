@@ -6,10 +6,14 @@ namespace LemonFramework
 {
     public class Startup : MonoBehaviour, IStartup
     {
+        [SerializeField]
+        private CodeMode m_codeMode;
         public CodeMode CodeModeType
         {
-            get;
-            set;
+            get
+            {
+                return m_codeMode;
+            }
         }
 
         public void Awake ()
