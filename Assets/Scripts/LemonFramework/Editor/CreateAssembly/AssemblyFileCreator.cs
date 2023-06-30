@@ -88,7 +88,7 @@ namespace LemonFramework.Editor
 
             if (!File.Exists(hotfixAssembly))
             {
-                CreatorAssembly(hotfixAssembly, $"{keyword}.Hotfix", EditorDefine.CNFHOTFIXASSEMBLY);
+                CreatorAssembly(hotfixAssembly, $"{keyword}.Hotfix", EditorDefine.LFHOTFIXASSEMBLY);
                 AssetDatabase.Refresh();
             }
 

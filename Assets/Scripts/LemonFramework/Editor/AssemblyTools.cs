@@ -68,7 +68,7 @@ namespace LemonFramework.Editor
         /// <returns></returns>
         public static List<string> FindAssemblyCNF (string baseAssembly)
         {
-            return FindAssembly (baseAssembly, EditorDefine.CNFHOTFIXASSEMBLY, EditorDefine.CNFEDITORMODEL);
+            return FindAssembly (baseAssembly, EditorDefine.LFHOTFIXASSEMBLY, EditorDefine.CNFEDITORMODEL);
         }
 
         /// <summary>

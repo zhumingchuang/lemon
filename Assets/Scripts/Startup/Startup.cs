@@ -9,7 +9,7 @@ namespace LemonFramework
         public CodeMode CodeModeType
         {
             get;
-            private set;
+            set;
         }
 
         public void Awake ()

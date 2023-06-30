@@ -17,7 +17,7 @@ namespace LemonFramework.Editor
         {
             get
             {
-                return System.IO.Path.Combine(System.IO.Path.GetFullPath(EditorDefine.CODEDIR), EditorDefine.CNFHOTFIXASSEMBLY + ".dll.bytes");
+                return System.IO.Path.Combine(System.IO.Path.GetFullPath(EditorDefine.CODEDIR), EditorDefine.LFHOTFIXASSEMBLY + ".dll.bytes");
             }
         }
 

@@ -111,7 +111,7 @@ namespace LemonFramework.Editor.UIModule
         public void Setup()
         {
             Keyword = _keyword;
-            CNFAssembly = AssemblyTools.FindAssemblyCNF(EditorDefine.CNFHOTFIXASSEMBLY).ToArray();
+            CNFAssembly = AssemblyTools.FindAssemblyCNF(EditorDefine.LFHOTFIXASSEMBLY).ToArray();
             var uiAssemblys= AssetDatabase.FindAssets(EditorPrefs.GetString(EditorDefine.SELECTUIASSEMBLY));
             for (int i = 0; i < uiAssemblys.Length; i++)
             {

@@ -24,11 +24,11 @@ namespace LemonFramework.Editor
 
             List<string> excludeReferences = new List<string> ();
             List<string> codeDirectorys = new List<string> ();
-            var hotfix = AssetDatabaseTools.FindAssets (EditorDefine.CNFHOTFIXASSEMBLY, ".asmdef");
+            var hotfix = AssetDatabaseTools.FindAssets (EditorDefine.LFHOTFIXASSEMBLY, ".asmdef");
             var hotfixPath = Path.GetDirectoryName (hotfix);
             codeDirectorys.Add (hotfixPath);
 
-            excludeReferences.Add (Path.Combine (EditorDefine.SCRIPTASSEMBLIESDIR, $"{EditorDefine.CNFHOTFIXASSEMBLY}.dll").Replace ("\\", "/"));
+            excludeReferences.Add (Path.Combine (EditorDefine.SCRIPTASSEMBLIESDIR, $"{EditorDefine.LFHOTFIXASSEMBLY}.dll").Replace ("\\", "/"));
 
             if (assemblyPath != null && assemblyPath.Count > 0)
             {
@@ -97,11 +97,11 @@ namespace LemonFramework.Editor
             {
                 List<string> excludeReferences = new List<string> ();
                 List<string> codeDirectorys = new List<string> ();
-                var hotfix = AssetDatabaseTools.FindAssets (EditorDefine.CNFHOTFIXASSEMBLY, ".asmdef");
+                var hotfix = AssetDatabaseTools.FindAssets (EditorDefine.LFHOTFIXASSEMBLY, ".asmdef");
                 var hotfixPath = Path.GetDirectoryName (hotfix);
                 codeDirectorys.Add (hotfixPath);
 
-                excludeReferences.Add (Path.Combine (EditorDefine.SCRIPTASSEMBLIESDIR, $"{EditorDefine.CNFHOTFIXASSEMBLY}.dll").Replace ("\\", "/"));
+                excludeReferences.Add (Path.Combine (EditorDefine.SCRIPTASSEMBLIESDIR, $"{EditorDefine.LFHOTFIXASSEMBLY}.dll").Replace ("\\", "/"));
 
                 codeDirectorys.AddRange (assemblyPath);
 
@@ -123,11 +123,11 @@ namespace LemonFramework.Editor
             {
                 List<string> excludeReferences = new List<string> ();
                 List<string> codeDirectorys = new List<string> ();
-                var hotfix = AssetDatabaseTools.FindAssets (EditorDefine.CNFHOTFIXASSEMBLY, ".asmdef");
+                var hotfix = AssetDatabaseTools.FindAssets (EditorDefine.LFHOTFIXASSEMBLY, ".asmdef");
                 var hotfixPath = Path.GetDirectoryName (hotfix);
                 codeDirectorys.Add (hotfixPath);
 
-                excludeReferences.Add (Path.Combine (EditorDefine.SCRIPTASSEMBLIESDIR, $"{EditorDefine.CNFHOTFIXASSEMBLY}.dll").Replace ("\\", "/"));
+                excludeReferences.Add (Path.Combine (EditorDefine.SCRIPTASSEMBLIESDIR, $"{EditorDefine.LFHOTFIXASSEMBLY}.dll").Replace ("\\", "/"));
 
                 for (int i = 0; i < assemblyPath.Count; i++)
                 {

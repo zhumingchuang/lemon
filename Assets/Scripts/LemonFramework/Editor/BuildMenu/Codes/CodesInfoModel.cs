@@ -76,7 +76,7 @@ namespace LemonFramework.Editor
             HotfixCodePath.Clear();
             CodesPath.Clear();
             var selectAssembly = EditorPrefs.GetString(EditorDefine.SELECTASSEMBLY).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-            var referenced = AssemblyTools.FindAssemblyCNF(EditorDefine.CNFHOTFIXASSEMBLY);
+            var referenced = AssemblyTools.FindAssemblyCNF(EditorDefine.LFHOTFIXASSEMBLY);
             for (int i = 0; i < selectAssembly.Length; i++)
             {
                 if(referenced.Contains(selectAssembly[i]))

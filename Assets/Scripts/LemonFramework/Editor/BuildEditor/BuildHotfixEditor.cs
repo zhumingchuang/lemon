@@ -45,7 +45,7 @@ namespace LemonFramework.Editor
                 var selectAssembly = EditorPrefs.GetString(EditorDefine.SELECTASSEMBLY).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                 for (int i = 0; i < selectAssembly.Length; i++)
                 {
-                    if (AssemblyTools.CheckAssemblyChildren(selectAssembly[i], EditorDefine.CNFHOTFIXASSEMBLY))
+                    if (AssemblyTools.CheckAssemblyChildren(selectAssembly[i], EditorDefine.LFHOTFIXASSEMBLY))
                     {
                         string assetPath = AssetDatabaseTools.FindAssets(selectAssembly[i], ".asmdef");
                         hotfixCodePath.Add(assetPath);
@@ -64,9 +64,9 @@ namespace LemonFramework.Editor
                 var selectAssembly = EditorPrefs.GetString(EditorDefine.SELECTASSEMBLY).Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                 for (int i = 0; i < selectAssembly.Length; i++)
                 {
-                    if (AssemblyTools.CheckAssemblyChildren(selectAssembly[i], EditorDefine.CNFASSEMBLY))
+                    if (AssemblyTools.CheckAssemblyChildren(selectAssembly[i], EditorDefine.LFASSEMBLY))
                     {
-                        if (!AssemblyTools.CheckAssemblyChildren(selectAssembly[i], EditorDefine.CNFHOTFIXASSEMBLY))
+                        if (!AssemblyTools.CheckAssemblyChildren(selectAssembly[i], EditorDefine.LFHOTFIXASSEMBLY))
                         {
                             string assetPath = AssetDatabaseTools.FindAssets(selectAssembly[i], ".asmdef");
                             codePath.Add(assetPath);
@@ -242,7 +242,7 @@ namespace LemonFramework.Editor
                         if (assemblyStartedCompilation.Contains(dllName[i]))
                         {
                             string fullPath = System.IO.Path.Combine(System.IO.Path.GetFullPath(EditorDefine.CODEDIR), dllName[i] + ".dll.bytes");
-                            string[] assembly = { EditorDefine.CNFHOTFIXASSEMBLY, dllName[i] };
+                            string[] assembly = { EditorDefine.LFHOTFIXASSEMBLY, dllName[i] };
                             if (!CompileAssembly.MergeDll(fullPath, assembly))
                             {
                                 return;
@@ -321,12 +321,12 @@ namespace LemonFramework.Editor
         public static List<string> GetHotfixAssembly()
         {
             if (!Directory.Exists(EditorDefine.CODEDIR)) Directory.CreateDirectory(EditorDefine.CODEDIR);
-            var hotfixGuids = AssetDatabase.FindAssets(EditorDefine.CNFHOTFIXASSEMBLY);
+            var hotfixGuids = AssetDatabase.FindAssets(EditorDefine.LFHOTFIXASSEMBLY);
             string HotfixGuid = string.Empty;
             for (int i = 0; i < hotfixGuids.Length; i++)
             {
                 var tempHotfixPath = AssetDatabase.GUIDToAssetPath(hotfixGuids[i]);
-                if (tempHotfixPath.EndsWith($"{EditorDefine.CNFHOTFIXASSEMBLY}.asmdef"))
+                if (tempHotfixPath.EndsWith($"{EditorDefine.LFHOTFIXASSEMBLY}.asmdef"))
                 {
                     HotfixGuid = hotfixGuids[i];
                     break;
@@ -346,7 +346,7 @@ namespace LemonFramework.Editor
                 var asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(AssemblyDefinitionAsset)) as AssemblyDefinitionAsset;
                 var temptxt = asset.text.Replace(" ", string.Empty);
                 var references = RegexUtility.GetMiddleValue(temptxt, $@"""references"":[", "],");
-                if (references.Contains(EditorDefine.CNFHOTFIXASSEMBLY) || references.Contains(HotfixGuid))
+                if (references.Contains(EditorDefine.LFHOTFIXASSEMBLY) || references.Contains(HotfixGuid))
                 {
                     hotfixAssembly.Add(asset.name);
                 }
@@ -360,12 +360,12 @@ namespace LemonFramework.Editor
         static void CopyCode()
         {
             if (!Directory.Exists(EditorDefine.CODEDIR)) Directory.CreateDirectory(EditorDefine.CODEDIR);
-            var hotfixGuids = AssetDatabase.FindAssets(EditorDefine.CNFHOTFIXASSEMBLY);
+            var hotfixGuids = AssetDatabase.FindAssets(EditorDefine.LFHOTFIXASSEMBLY);
             string HotfixGuid = string.Empty;
             for (int i = 0; i < hotfixGuids.Length; i++)
             {
                 var tempHotfixPath = AssetDatabase.GUIDToAssetPath(hotfixGuids[i]);
-                if (tempHotfixPath.EndsWith($"{EditorDefine.CNFHOTFIXASSEMBLY}.asmdef"))
+                if (tempHotfixPath.EndsWith($"{EditorDefine.LFHOTFIXASSEMBLY}.asmdef"))
                 {
                     HotfixGuid = hotfixGuids[i];
                 }
@@ -385,7 +385,7 @@ namespace LemonFramework.Editor
                 var asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(AssemblyDefinitionAsset)) as AssemblyDefinitionAsset;
                 var temptxt = asset.text.Replace(" ", string.Empty);
                 var references = RegexUtility.GetMiddleValue(temptxt, $@"""references"":[", "],");
-                if (references.Contains(EditorDefine.CNFHOTFIXASSEMBLY) || references.Contains(HotfixGuid))
+                if (references.Contains(EditorDefine.LFHOTFIXASSEMBLY) || references.Contains(HotfixGuid))
                 {
                     objs.Add(asset.name);
                 }

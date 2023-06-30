@@ -44,7 +44,7 @@ namespace LemonFramework.Editor
 
             if (url[0] != GlobalProto.AssetBundleServerUrl || url[1] != GlobalProto.Address)
             {
-                var hotfixAssembly = AssetDatabaseTools.FindAssets (EditorDefine.CNFHOTFIXASSEMBLY, ".asmdef");
+                var hotfixAssembly = AssetDatabaseTools.FindAssets (EditorDefine.LFHOTFIXASSEMBLY, ".asmdef");
                 var globalProtoPath = AssetDatabaseTools.FindAssets ("GlobalProto", ".cs", Path.GetDirectoryName (hotfixAssembly));
                 var data = File.ReadAllText (globalProtoPath, System.Text.Encoding.UTF8);
 

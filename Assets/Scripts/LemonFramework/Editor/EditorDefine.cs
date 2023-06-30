@@ -218,17 +218,17 @@ namespace LemonFramework.Editor
 
         #region 其他配置
         /// <summary>
-        /// 程序集
+        /// 框架核心程序集
         /// </summary>
-        public const string CNFASSEMBLY = "LemonFramework.Runtime";
+        public const string LFASSEMBLY = "LemonFramework.Core";
 
         /// <summary>
-        /// 
+        /// 框架模块程序集
         /// </summary>
-        public const string CNFHOTFIXASSEMBLY = "LemonFramework.Hotfix";
+        public const string LFHOTFIXASSEMBLY = "LemonFramework.Module";
 
         /// <summary>
-        /// 
+        /// 框架编辑器程序集
         /// </summary>
         public const string CNFEDITORMODEL = "LemonFramework.Editor";
 

@@ -56,7 +56,7 @@ namespace LemonFramework.Editor
 
             dictAssembly.Clear();
 
-            var assemblies = AssemblyTools.FindAssemblyCNF(EditorDefine.CNFHOTFIXASSEMBLY);
+            var assemblies = AssemblyTools.FindAssemblyCNF(EditorDefine.LFHOTFIXASSEMBLY);
             for (int i = 0; i < assemblies.Count; i++)
             {
                 if (SelectAssembly != null && SelectAssembly.Contains(assemblies[i]))
